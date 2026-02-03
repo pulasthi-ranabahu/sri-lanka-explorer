@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -42,14 +43,17 @@ const Header = () => {
         {/* Logo */}
         <motion.a
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-3"
           whileHover={{ scale: 1.02 }}
         >
-          <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-            <span className="font-serif text-secondary-foreground font-bold text-lg">
-              SL
-            </span>
-          </div>
+          <img 
+            src={logo} 
+            alt="Meridian Escapes" 
+            className={cn(
+              "transition-all duration-300",
+              isScrolled ? "h-10" : "h-12"
+            )}
+          />
           <div className="flex flex-col">
             <span
               className={cn(
@@ -57,7 +61,7 @@ const Header = () => {
                 isScrolled ? "text-foreground" : "text-white"
               )}
             >
-              Ceylon Voyages
+              Meridian Escapes
             </span>
             <span
               className={cn(

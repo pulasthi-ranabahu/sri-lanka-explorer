@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
@@ -44,6 +44,14 @@ const testimonials = [
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -77,7 +85,25 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-navy-900 text-white relative overflow-hidden">
+    <section
+      ref={containerRef}
+      className="py-24 relative overflow-hidden"
+    >
+      {/* Parallax Background Image */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 w-full h-[120%] -top-[10%]"
+      >
+        <img
+          src="https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Sigiriya Rock Fortress - Sri Lanka"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-foreground/90 via-foreground/85 to-foreground/90" />
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-secondary blur-3xl" />
@@ -96,10 +122,10 @@ const Testimonials = () => {
           <span className="text-secondary uppercase tracking-[0.2em] text-sm font-medium">
             Traveler Stories
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4 text-white">
             What Our Guests Say
           </h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
+          <p className="text-white/70 max-w-2xl mx-auto">
             Don't just take our word for it — hear from travelers who've
             experienced the magic of Sri Lanka with us
           </p>
