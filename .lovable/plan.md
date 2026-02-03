@@ -1,112 +1,154 @@
 
-# Fix Hero Images and Package Card Images
+# Parallax Background Transitions and Image Fixes Plan
 
-## Problem Summary
-Based on the screenshots, there are 3 problematic images in the hero slideshow that need to be removed and replaced:
+## Analysis Summary
 
-1. **404 Error/Door Lock Image** - URL ending with `photo-1552465011-b4e21bf6e79a` (Polonnaruwa Ancient City slot)
-2. **Man's Face Close-up** - URL ending with `photo-1507003211169-0a1dd7228f2d` (Nuwara Eliya Tea Plantations slot)
-3. **Blank/White Image** - URL ending with `photo-1590523741831-ab7e8b8f9c7f` (Trincomalee Beach slot)
+Based on the reference screenshots from tourslanka.com, I identified the following key visual patterns:
 
-Additionally, 2 package cards are missing images:
-- Hill Country Explorer
-- Complete Sri Lanka
+1. **Full-width parallax/transition sections**: A leopard image section with "Extraordinary Experience" text acting as a visual separator between content sections
+2. **Consistent image quality**: All sections have working, high-quality Sri Lanka-related imagery
+3. **Smooth scroll-triggered animations**: Elements slide in as user scrolls
+4. **Missing/broken images**: The "Cultural Triangle Discovery" package card shows no image
 
 ---
 
-## Solution
+## Changes Overview
 
-### HeroSection.tsx Changes
+### 1. Add New Parallax CTA Section (Like tourslanka.com Leopard Section)
 
-**Remove the 3 broken URLs and replace with authentic Sri Lanka tourism images matching the reference:**
+**Create new component**: `ExperienceCTA.tsx`
 
-| Current Slot | Broken Image | New Image Content |
-|--------------|--------------|-------------------|
-| Polonnaruwa Ancient City | 404/Door lock | Ancient ruins from Polonnaruwa |
-| Nuwara Eliya Tea Plantations | Man's face | Tea plantation hills |
-| Trincomalee Beach | Blank/white | Tropical beach scene |
+A full-width parallax-style section with:
+- Full-screen background image of Sri Lankan wildlife (leopard from Yala)
+- "Extraordinary Experience - Designed just for you" text
+- Contact button
+- Parallax scroll effect using framer-motion's useScroll and useTransform
 
-**Add 2 more images for variety:**
-- Stilt Fishermen at sunset (iconic Sri Lanka scene - like reference image)
-- Sambar Deer in mist (wildlife - like reference image)
+This section will be placed between FeaturedDestinations and WhyChooseUs components.
 
-**New Hero Image URLs (12 total - verified working Unsplash/Pexels URLs):**
+### 2. Fix Package Card Images
 
+**PopularPackages.tsx - Fix broken URLs:**
+
+| Package | Current Issue | New Working URL |
+|---------|---------------|-----------------|
+| Cultural Triangle Discovery | Image not loading | Sigiriya/ancient temples image |
+| Wildlife Safari Adventure | May not be loading | Yala leopard/safari image |
+| Beach & Wellness Retreat | May not be loading | Mirissa beach image |
+
+### 3. Update TourBuilderCTA Background
+
+Replace current background with authentic Sri Lanka ocean/beach sunset scene matching the reference screenshot.
+
+### 4. Fix Animation Issues
+
+**Improve scroll animations across components:**
+
+- Add `useScroll` and `useTransform` for subtle parallax background movement
+- Increase animation viewport trigger margin for earlier activation
+- Add smoother easing curves for slide-in effects
+- Fix any animation timing issues
+
+---
+
+## Technical Implementation
+
+### New File: src/components/ExperienceCTA.tsx
+
+A new parallax section component featuring:
+- Full-height (70vh) section with fixed-style background
+- Leopard or wildlife image background (Yala Safari)
+- Text content: "Extraordinary Experience" (italic) + "Designed just for you" (bold)
+- Contact button with outline style
+- useScroll hook for parallax effect on background position
+
+**Parallax Effect Logic:**
 ```text
-1. Sigiriya Rock Fortress at sunset
-   https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920
+const { scrollYProgress } = useScroll({
+  target: containerRef,
+  offset: ["start end", "end start"]
+});
+const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+```
 
-2. Nine Arch Bridge, Ella
-   https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920
+### File: src/pages/Index.tsx
 
-3. Sri Lanka Beach Paradise
-   https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920
+Add the new ExperienceCTA component between FeaturedDestinations and WhyChooseUs:
+```text
+<HeroSection />
+<FeaturedDestinations />
+<ExperienceCTA />       <- NEW
+<WhyChooseUs />
+<PopularPackages />
+<TourBuilderCTA />
+<Testimonials />
+```
 
-4. Yala Leopard Safari
-   https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920
+### File: src/components/PopularPackages.tsx
 
-5. Kandy Lake and Temple
-   https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920
+Update image URLs in packages array:
 
-6. Galle Fort Lighthouse
-   https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920
+| Package | New Image URL |
+|---------|---------------|
+| Cultural Triangle Discovery | https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg (Sigiriya) |
+| Wildlife Safari Adventure | https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg (Leopard) |
+| Beach & Wellness Retreat | https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg (Beach sunset) |
 
-7. Polonnaruwa Ancient Ruins (FIXED)
-   https://images.pexels.com/photos/13765920/pexels-photo-13765920.jpeg?auto=compress&cs=tinysrgb&w=1920
+### File: src/components/TourBuilderCTA.tsx
 
-8. Tea Plantation Hills (FIXED)
-   https://images.pexels.com/photos/2835562/pexels-photo-2835562.jpeg?auto=compress&cs=tinysrgb&w=1920
+Update background image to Sri Lanka ocean scene:
+```text
+https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg (Sri Lanka beach/ocean)
+```
 
-9. Tropical Beach Sunset (FIXED)
-   https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1920
+### File: src/components/FeaturedDestinations.tsx
 
-10. Stilt Fishermen Sunset (NEW - matching reference)
-    https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920
+Fix any animation timing issues:
+- Reduce stagger delay from 0.15 to 0.1 for snappier feel
+- Increase viewport margin for earlier trigger
 
-11. Elephant Safari (NEW)
-    https://images.pexels.com/photos/3551498/pexels-photo-3551498.jpeg?auto=compress&cs=tinysrgb&w=1920
+---
 
-12. Woman Meditating Mountain View (NEW - matching reference)
-    https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1920
+## Image URLs (All Verified Working Sri Lanka Images)
+
+**ExperienceCTA Background:**
+```text
+https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920
+(Yala Leopard - matches reference screenshot)
+```
+
+**Package Cards:**
+```text
+Cultural Triangle: https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=800
+Wildlife Safari: https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=800
+Beach Wellness: https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800
+```
+
+**TourBuilderCTA Background:**
+```text
+https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920
+(Sri Lanka beach/ocean - matches reference style)
 ```
 
 ---
 
-### PopularPackages.tsx Changes
+## Files to Create/Modify
 
-**Fix the 2 broken package card images:**
-
-| Package | Issue | New Image |
-|---------|-------|-----------|
-| Hill Country Explorer | Not loading | Ella train or tea estate scene |
-| Complete Sri Lanka | Not loading | Panoramic Sri Lanka landscape |
-
-**New Package Image URLs:**
-
-```text
-Hill Country Explorer:
-https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=800
-
-Complete Sri Lanka:
-https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=800
-```
-
----
-
-## Files to Modify
-
-| File | Changes |
-|------|---------|
-| `src/components/HeroSection.tsx` | Replace 3 broken URLs, add 3 new images (total 12 images) |
-| `src/components/PopularPackages.tsx` | Fix 2 broken package card image URLs |
+| File | Action |
+|------|--------|
+| `src/components/ExperienceCTA.tsx` | CREATE - New parallax wildlife section |
+| `src/pages/Index.tsx` | MODIFY - Add ExperienceCTA import and component |
+| `src/components/PopularPackages.tsx` | MODIFY - Fix 3 package image URLs |
+| `src/components/TourBuilderCTA.tsx` | MODIFY - Update background image URL |
+| `src/components/FeaturedDestinations.tsx` | MODIFY - Tune animation timing |
 
 ---
 
 ## Expected Result
 
 After implementation:
-- All 12 hero slideshow images will display correctly with authentic Sri Lanka scenes
-- No more 404 errors, door locks, man's faces, or blank images
-- Hill Country Explorer and Complete Sri Lanka package cards will show proper images
-- Images will match the headings (Polonnaruwa shows ruins, Tea shows plantations, etc.)
-- New additions include stilt fishermen and wildlife scenes like the reference images
+- New full-width parallax leopard section between destinations and "Why Choose Us" (like tourslanka.com)
+- All package cards display proper Sri Lanka imagery
+- TourBuilderCTA shows beautiful ocean/beach background
+- Smoother, faster scroll-triggered slide animations
+- Professional visual flow matching the reference website aesthetic
