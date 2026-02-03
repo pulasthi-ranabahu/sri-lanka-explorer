@@ -6,7 +6,7 @@ const destinations = [
     id: 1,
     name: "Sigiriya",
     subtitle: "Lion Rock Fortress",
-    image: "https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Ancient rock fortress with stunning frescoes and panoramic views",
     category: "Historical",
   },
@@ -14,7 +14,7 @@ const destinations = [
     id: 2,
     name: "Ella",
     subtitle: "Nine Arch Bridge",
-    image: "https://images.unsplash.com/photo-1566654183375-3dc8c7bf4a18?auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Scenic train rides and breathtaking viewpoints",
     category: "Mountains",
   },
@@ -22,7 +22,7 @@ const destinations = [
     id: 3,
     name: "Yala",
     subtitle: "Wildlife Safari",
-    image: "https://images.unsplash.com/photo-1544985361-b420d7a77043?auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Home to leopards and exotic wildlife",
     category: "Wildlife",
   },
@@ -30,7 +30,7 @@ const destinations = [
     id: 4,
     name: "Mirissa",
     subtitle: "Beach Paradise",
-    image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Pristine beaches and whale watching",
     category: "Beach",
   },
@@ -38,7 +38,7 @@ const destinations = [
     id: 5,
     name: "Kandy",
     subtitle: "Cultural Capital",
-    image: "https://images.unsplash.com/photo-1625222260311-ae620c4b3f78?auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Temple of the Tooth and traditional arts",
     category: "Cultural",
   },
@@ -46,7 +46,7 @@ const destinations = [
     id: 6,
     name: "Galle",
     subtitle: "Colonial Heritage",
-    image: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Dutch fort and coastal charm",
     category: "Historical",
   },
@@ -57,17 +57,26 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+const slideInLeftVariants = {
+  hidden: { opacity: 0, x: -60 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
+    x: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
+
+const slideInRightVariants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -106,7 +115,7 @@ const FeaturedDestinations = () => {
           {destinations.map((destination, index) => (
             <motion.div
               key={destination.id}
-              variants={itemVariants}
+              variants={index % 2 === 0 ? slideInLeftVariants : slideInRightVariants}
               className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
                 index === 0 ? "md:col-span-2 md:row-span-2" : ""
               }`}
