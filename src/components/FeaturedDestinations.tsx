@@ -13,18 +13,18 @@ const destinations = [
   },
   {
     id: 2,
-    name: "Ella",
-    subtitle: "Nine Arch Bridge",
-    image: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    description: "Scenic train rides and breathtaking viewpoints",
-    category: "Mountains",
+    name: "Colombo",
+    subtitle: "Lotus Tower",
+    image: "https://images.pexels.com/photos/12502853/pexels-photo-12502853.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    description: "Iconic tower and modern city attractions",
+    category: "City",
   },
   {
     id: 3,
     name: "Yala",
     subtitle: "Wildlife Safari",
-    image: "https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    description: "Home to leopards and exotic wildlife",
+    image: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    description: "Home to elephants, leopards and exotic wildlife",
     category: "Wildlife",
   },
   {
@@ -37,19 +37,19 @@ const destinations = [
   },
   {
     id: 5,
+    name: "Ella",
+    subtitle: "Nine Arch Bridge",
+    image: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    description: "Scenic train rides and breathtaking viewpoints",
+    category: "Mountains",
+  },
+  {
+    id: 6,
     name: "Kandy",
     subtitle: "Cultural Capital",
     image: "https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Temple of the Tooth and traditional arts",
     category: "Cultural",
-  },
-  {
-    id: 6,
-    name: "Galle",
-    subtitle: "Colonial Heritage",
-    image: "https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    description: "Dutch fort and coastal charm",
-    category: "Historical",
   },
 ];
 
