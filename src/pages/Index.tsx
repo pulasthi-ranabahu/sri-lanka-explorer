@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import FeaturedDestinations from "@/components/FeaturedDestinations";
+import ExperienceCTA from "@/components/ExperienceCTA";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import PopularPackages from "@/components/PopularPackages";
 import Testimonials from "@/components/Testimonials";
@@ -14,6 +15,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <FeaturedDestinations />
+        <ExperienceCTA />
         <WhyChooseUs />
         <PopularPackages />
         <TourBuilderCTA />
