@@ -1,10 +1,20 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const TourBuilderCTA = () => {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section ref={containerRef} className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -13,15 +23,18 @@ const TourBuilderCTA = () => {
           transition={{ duration: 0.8 }}
           className="relative rounded-3xl overflow-hidden"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0">
+          {/* Parallax Background Image */}
+          <motion.div 
+            className="absolute inset-0"
+            style={{ y }}
+          >
             <img
               src="https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920"
               alt="Sri Lanka Beach Ocean Sunset"
-              className="w-full h-full object-cover"
+              className="w-full h-[120%] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/90 to-navy-950/80" />
-          </div>
+          </motion.div>
 
           {/* Content */}
           <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center md:text-left">

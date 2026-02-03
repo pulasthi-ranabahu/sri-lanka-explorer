@@ -43,7 +43,7 @@ const Header = () => {
         {/* Logo */}
         <motion.a
           href="/"
-          className="flex items-center gap-3"
+          className="flex items-center gap-2"
           whileHover={{ scale: 1.02 }}
         >
           <img 
@@ -51,27 +51,16 @@ const Header = () => {
             alt="Meridian Escapes" 
             className={cn(
               "transition-all duration-300",
-              isScrolled ? "h-10" : "h-12"
+              isScrolled ? "h-10" : "h-14"
             )}
           />
-          <div className="flex flex-col">
+          {!isScrolled && (
             <span
-              className={cn(
-                "font-serif text-xl font-bold transition-colors",
-                isScrolled ? "text-foreground" : "text-white"
-              )}
-            >
-              Meridian Escapes
-            </span>
-            <span
-              className={cn(
-                "text-xs tracking-wider uppercase transition-colors",
-                isScrolled ? "text-muted-foreground" : "text-white/80"
-              )}
+              className="text-xs tracking-wider uppercase text-white/80 hidden sm:block"
             >
               Discover Sri Lanka
             </span>
-          </div>
+          )}
         </motion.a>
 
         {/* Desktop Navigation */}

@@ -98,20 +98,15 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="mb-6">
               <img 
                 src={logo} 
                 alt="Meridian Escapes" 
-                className="h-12"
+                className="h-14 mb-2"
               />
-              <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold">
-                  Meridian Escapes
-                </span>
-                <span className="text-xs tracking-wider uppercase text-white/60">
-                  Discover Sri Lanka
-                </span>
-              </div>
+              <span className="text-xs tracking-wider uppercase text-white/60">
+                Discover Sri Lanka
+              </span>
             </div>
 
             <p className="text-white/70 mb-6 leading-relaxed max-w-sm">
