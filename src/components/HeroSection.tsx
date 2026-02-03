@@ -6,40 +6,52 @@ import { Input } from "@/components/ui/input";
 
 const heroImages = [
   {
-    url: "https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=1920&q=80",
-    alt: "Sigiriya Lion Rock Fortress",
+    url: "https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Sigiriya Rock Fortress at Sunset",
   },
   {
-    url: "https://images.unsplash.com/photo-1566654183375-3dc8c7bf4a18?auto=format&fit=crop&w=1920&q=80",
+    url: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Nine Arch Bridge, Ella",
   },
   {
-    url: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1920&q=80",
-    alt: "Mirissa Beach",
+    url: "https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Sri Lanka Beach Paradise",
   },
   {
-    url: "https://images.unsplash.com/photo-1544985361-b420d7a77043?auto=format&fit=crop&w=1920&q=80",
-    alt: "Yala Wildlife Safari",
+    url: "https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Yala Leopard Safari",
   },
   {
-    url: "https://images.unsplash.com/photo-1625222260311-ae620c4b3f78?auto=format&fit=crop&w=1920&q=80",
-    alt: "Kandy Temple",
+    url: "https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Kandy Lake and Temple",
   },
   {
-    url: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80",
-    alt: "Galle Fort",
+    url: "https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Galle Fort Lighthouse",
   },
   {
-    url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=80",
-    alt: "Polonnaruwa Ancient City",
+    url: "https://images.pexels.com/photos/13765920/pexels-photo-13765920.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Polonnaruwa Ancient Ruins",
   },
   {
-    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80",
+    url: "https://images.pexels.com/photos/2835562/pexels-photo-2835562.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Nuwara Eliya Tea Plantations",
   },
   {
-    url: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1920&q=80",
-    alt: "Trincomalee Beach",
+    url: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Tropical Beach Sunset",
+  },
+  {
+    url: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Stilt Fishermen at Sunset",
+  },
+  {
+    url: "https://images.pexels.com/photos/3551498/pexels-photo-3551498.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Elephant Safari",
+  },
+  {
+    url: "https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Mountain View Meditation",
   },
 ];
 
