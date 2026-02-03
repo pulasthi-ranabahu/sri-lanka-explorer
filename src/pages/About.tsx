@@ -67,6 +67,11 @@ const About = () => {
         title="About Us"
         subtitle="Your trusted partner for exploring the wonders of Sri Lanka"
         backgroundImage="https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImages={[
+          "https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        ]}
       />
 
       {/* Story Section */}

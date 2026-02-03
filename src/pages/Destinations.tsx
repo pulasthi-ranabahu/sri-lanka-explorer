@@ -63,6 +63,12 @@ const Destinations = () => {
         title="Discover Sri Lanka"
         subtitle="From ancient ruins to pristine beaches, explore the diverse wonders of this tropical paradise"
         backgroundImage="https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImages={[
+          "https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/4625368/pexels-photo-4625368.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        ]}
       />
 
       <section className="py-20 bg-background">
