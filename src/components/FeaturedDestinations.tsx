@@ -156,8 +156,8 @@ const FeaturedDestinations = () => {
               }`}
             >
               <div
-                className={`relative ${
-                  index === 0 ? "h-[500px]" : "h-[280px]"
+                className={`relative overflow-hidden ${
+                  index === 0 ? "h-[500px] rounded-2xl" : "h-[280px] rounded-2xl"
                 }`}
               >
                 {/* Image */}
