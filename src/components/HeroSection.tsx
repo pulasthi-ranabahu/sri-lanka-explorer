@@ -21,15 +21,15 @@ const HeroSection = () => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1586016413664-864c0dd76f53?auto=format&fit=crop&w=1920&q=80"
+          poster="https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=1920&q=80"
         >
           <source
             src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1a9e7c02d&profile_id=164&oauth2_token_id=57447761"
             type="video/mp4"
           />
         </video>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-teal-900/70 via-teal-800/60 to-teal-900/80" />
+        {/* Gradient Overlay - Navy Blue */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/70 via-navy-800/60 to-navy-950/80" />
       </div>
 
       {/* Content */}
@@ -39,7 +39,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block text-gold-400 uppercase tracking-[0.3em] text-sm font-medium mb-4">
+          <span className="inline-block text-secondary uppercase tracking-[0.3em] text-sm font-medium mb-4">
             Welcome to Paradise
           </span>
         </motion.div>
@@ -52,7 +52,7 @@ const HeroSection = () => {
         >
           Discover the Magic of
           <br />
-          <span className="text-gold-400">Sri Lanka</span>
+          <span className="text-secondary">Sri Lanka</span>
         </motion.h1>
 
         <motion.p
@@ -138,7 +138,7 @@ const HeroSection = () => {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="hidden lg:block absolute left-8 bottom-1/4 glass-effect rounded-2xl p-4 text-white"
       >
-        <div className="text-3xl font-bold text-gold-400">500+</div>
+        <div className="text-3xl font-bold text-secondary">500+</div>
         <div className="text-sm opacity-80">Happy Travelers</div>
       </motion.div>
 
@@ -148,7 +148,7 @@ const HeroSection = () => {
         transition={{ delay: 1.4, duration: 0.8 }}
         className="hidden lg:block absolute right-8 bottom-1/3 glass-effect rounded-2xl p-4 text-white"
       >
-        <div className="text-3xl font-bold text-gold-400">4.9★</div>
+        <div className="text-3xl font-bold text-secondary">4.9★</div>
         <div className="text-sm opacity-80">Customer Rating</div>
       </motion.div>
     </section>

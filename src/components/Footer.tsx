@@ -56,7 +56,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-teal-900 text-white">
+    <footer className="bg-navy-950 text-white">
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
         <div className="container mx-auto px-4 py-12">

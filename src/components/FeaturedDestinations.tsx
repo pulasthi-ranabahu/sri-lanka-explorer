@@ -6,15 +6,15 @@ const destinations = [
     id: 1,
     name: "Sigiriya",
     subtitle: "Lion Rock Fortress",
-    image: "https://images.unsplash.com/photo-1586016413664-864c0dd76f53?auto=format&fit=crop&w=800&q=80",
-    description: "Ancient rock fortress with stunning frescoes",
+    image: "https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=800&q=80",
+    description: "Ancient rock fortress with stunning frescoes and panoramic views",
     category: "Historical",
   },
   {
     id: 2,
     name: "Ella",
-    subtitle: "Hill Country Paradise",
-    image: "https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=800&q=80",
+    subtitle: "Nine Arch Bridge",
+    image: "https://images.unsplash.com/photo-1566654183375-3dc8c7bf4a18?auto=format&fit=crop&w=800&q=80",
     description: "Scenic train rides and breathtaking viewpoints",
     category: "Mountains",
   },
@@ -22,7 +22,7 @@ const destinations = [
     id: 3,
     name: "Yala",
     subtitle: "Wildlife Safari",
-    image: "https://images.unsplash.com/photo-1606567595334-d39972c85dfd?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1544985361-b420d7a77043?auto=format&fit=crop&w=800&q=80",
     description: "Home to leopards and exotic wildlife",
     category: "Wildlife",
   },
@@ -30,7 +30,7 @@ const destinations = [
     id: 4,
     name: "Mirissa",
     subtitle: "Beach Paradise",
-    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80",
     description: "Pristine beaches and whale watching",
     category: "Beach",
   },
@@ -38,7 +38,7 @@ const destinations = [
     id: 5,
     name: "Kandy",
     subtitle: "Cultural Capital",
-    image: "https://images.unsplash.com/photo-1625736300986-5b1823c3e2a0?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1625222260311-ae620c4b3f78?auto=format&fit=crop&w=800&q=80",
     description: "Temple of the Tooth and traditional arts",
     category: "Cultural",
   },
@@ -123,8 +123,8 @@ const FeaturedDestinations = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 via-teal-900/30 to-transparent" />
+                {/* Gradient Overlay - Navy Blue */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-900/30 to-transparent" />
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
@@ -135,7 +135,7 @@ const FeaturedDestinations = () => {
 
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center gap-2 text-gold-400 mb-2">
+                  <div className="flex items-center gap-2 text-secondary mb-2">
                     <MapPin className="w-4 h-4" />
                     <span className="text-sm">{destination.subtitle}</span>
                   </div>
@@ -151,7 +151,7 @@ const FeaturedDestinations = () => {
                   </p>
                   <motion.a
                     href={`/destinations/${destination.id}`}
-                    className="inline-flex items-center gap-2 text-gold-400 font-medium text-sm group/link"
+                    className="inline-flex items-center gap-2 text-secondary font-medium text-sm group/link"
                     whileHover={{ x: 5 }}
                   >
                     Explore
