@@ -14,7 +14,7 @@ const packages = [
     price: 899,
     rating: 4.9,
     reviews: 245,
-    image: "https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/4625368/pexels-photo-4625368.jpeg?auto=compress&cs=tinysrgb&w=800",
     description: "Explore ancient temples, UNESCO sites, and traditional villages on this immersive cultural journey.",
     highlights: ["Sigiriya Rock Fortress", "Temple of the Tooth", "Dambulla Cave Temple", "Traditional Dance Show"],
   },
