@@ -52,6 +52,11 @@ const Contact = () => {
         title="Contact Us"
         subtitle="We'd love to hear from you. Get in touch with our team."
         backgroundImage="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        backgroundImages={[
+          "https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        ]}
       />
 
       <section className="py-20 bg-background">
