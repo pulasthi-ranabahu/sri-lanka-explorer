@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
+import sigiriyaImage from "@/assets/sigiriya.png";
 
 const destinations = [
   {
@@ -11,7 +12,7 @@ const destinations = [
     name: "Sigiriya",
     subtitle: "Ancient Rock Fortress",
     description: "Marvel at the ancient rock fortress rising 200 meters above the jungle, featuring stunning frescoes and landscaped gardens.",
-    image: "https://images.pexels.com/photos/4625368/pexels-photo-4625368.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: sigiriyaImage,
     highlights: ["UNESCO World Heritage", "Ancient Frescoes", "Mirror Wall"],
   },
   {
