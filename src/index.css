@@ -11,32 +11,32 @@
 
 @layer base {
   :root {
-    /* Primary - Deep Blue */
-    --primary: 217 91% 40%;
+    /* Primary - Vibrant Blue (buttons, CTA) */
+    --primary: 213 90% 52%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary - Vibrant Teal (matching reference) */
-    --secondary: 174 84% 42%;
+    /* Secondary - Vibrant Teal/Cyan (accent text, highlights) */
+    --secondary: 170 75% 41%;
     --secondary-foreground: 0 0% 100%;
     
     /* Background & Foreground */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 210 40% 15%;
     
     /* Card */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 210 40% 15%;
     
     /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 210 40% 15%;
     
     /* Muted - Light Gray Blue */
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
     
-    /* Accent - Blue */
-    --accent: 217 91% 60%;
+    /* Accent - Teal */
+    --accent: 170 75% 41%;
     --accent-foreground: 0 0% 100%;
     
     /* Destructive */
@@ -46,14 +46,14 @@
     /* Border & Input */
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 217 91% 40%;
+    --ring: 213 90% 52%;
     
     --radius: 0.75rem;
     
     /* Custom gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 20% / 0.85), hsl(222 47% 11% / 0.9));
+    --gradient-hero: linear-gradient(135deg, hsl(210 50% 20% / 0.85), hsl(210 40% 15% / 0.9));
     --gradient-gold: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 93% 55%));
-    --gradient-blue: linear-gradient(135deg, hsl(217 91% 40%), hsl(217 91% 50%));
+    --gradient-blue: linear-gradient(135deg, hsl(213 90% 48%), hsl(213 90% 58%));
     
     /* Shadows */
     --shadow-sm: 0 2px 8px hsl(222 47% 11% / 0.08);
