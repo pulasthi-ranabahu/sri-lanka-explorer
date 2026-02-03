@@ -30,13 +30,35 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+const slideInLeftVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }
+  },
+};
+
+const slideInRightVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }
+  },
+};
+
+const slideInUpVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }
+  },
 };
 
 const WhyChooseUs = () => {
@@ -61,7 +83,7 @@ const WhyChooseUs = () => {
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              variants={itemVariants}
+              variants={index % 2 === 0 ? slideInLeftVariants : slideInRightVariants}
               className="text-center"
             >
               <motion.div
@@ -152,10 +174,10 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              {features.map((feature) => (
+              {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
-                  variants={itemVariants}
+                  variants={slideInUpVariants}
                   className="flex gap-4"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">

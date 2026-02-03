@@ -29,6 +29,18 @@ const heroImages = [
     url: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80",
     alt: "Galle Fort",
   },
+  {
+    url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=80",
+    alt: "Polonnaruwa Ancient City",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80",
+    alt: "Nuwara Eliya Tea Plantations",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1920&q=80",
+    alt: "Trincomalee Beach",
+  },
 ];
 
 const HeroSection = () => {
@@ -37,7 +49,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -64,18 +76,18 @@ const HeroSection = () => {
               opacity: 1, 
               scale: 1.1,
               transition: {
-                opacity: { duration: 1.5, ease: "easeInOut" },
-                scale: { duration: 6, ease: "linear" }
+                opacity: { duration: 0.8, ease: "easeInOut" },
+                scale: { duration: 4, ease: "linear" }
               }
             }}
             exit={{ 
               opacity: 0,
-              transition: { duration: 1.5, ease: "easeInOut" }
+              transition: { duration: 0.8, ease: "easeInOut" }
             }}
           />
         </AnimatePresence>
         {/* Gradient Overlay - Navy Blue */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/70 via-navy-800/60 to-navy-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
       </div>
 
       {/* Image Indicators */}
