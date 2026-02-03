@@ -77,7 +77,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+    <section className="py-24 bg-navy-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-secondary blur-3xl" />
@@ -99,7 +99,7 @@ const Testimonials = () => {
           <h2 className="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4">
             What Our Guests Say
           </h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto">
+          <p className="text-white/80 max-w-2xl mx-auto">
             Don't just take our word for it — hear from travelers who've
             experienced the magic of Sri Lanka with us
           </p>
@@ -117,7 +117,7 @@ const Testimonials = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5 }}
-                className="bg-card/10 backdrop-blur-sm rounded-3xl p-8 md:p-12"
+                className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12"
               >
                 {/* Quote Icon */}
                 <Quote className="w-12 h-12 text-secondary mb-6 opacity-50" />
@@ -148,7 +148,7 @@ const Testimonials = () => {
                     <div className="font-semibold text-lg">
                       {testimonials[activeIndex].name}
                     </div>
-                    <div className="text-primary-foreground/70 text-sm">
+                    <div className="text-white/70 text-sm">
                       {testimonials[activeIndex].location}
                     </div>
                     <div className="text-secondary text-sm">
@@ -163,7 +163,7 @@ const Testimonials = () => {
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+                className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -180,7 +180,7 @@ const Testimonials = () => {
                     className={`w-2.5 h-2.5 rounded-full transition-all ${
                       index === activeIndex
                         ? "w-8 bg-secondary"
-                        : "bg-primary-foreground/30"
+                        : "bg-white/30"
                     }`}
                   />
                 ))}
@@ -188,7 +188,7 @@ const Testimonials = () => {
 
               <button
                 onClick={nextTestimonial}
-                className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+                className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

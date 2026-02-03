@@ -16,11 +16,11 @@ const TourBuilderCTA = () => {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1546975490-e8b92a360b24?auto=format&fit=crop&w=1920&q=80"
-              alt="Sri Lanka Landscape"
+              src="https://images.unsplash.com/photo-1566654183375-3dc8c7bf4a18?auto=format&fit=crop&w=1920&q=80"
+              alt="Sri Lanka Tea Plantations"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/90 to-teal-900/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/90 to-navy-950/80" />
           </div>
 
           {/* Content */}
@@ -46,7 +46,7 @@ const TourBuilderCTA = () => {
               >
                 Design Your
                 <br />
-                <span className="text-gold-400">Dream Adventure</span>
+                <span className="text-secondary">Dream Adventure</span>
               </motion.h2>
 
               <motion.p
@@ -99,7 +99,7 @@ const TourBuilderCTA = () => {
                   { value: "24/7", label: "Support" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center md:text-left">
-                    <div className="text-2xl md:text-3xl font-bold text-gold-400">
+                    <div className="text-2xl md:text-3xl font-bold text-secondary">
                       {stat.value}
                     </div>
                     <div className="text-white/60 text-sm">{stat.label}</div>
