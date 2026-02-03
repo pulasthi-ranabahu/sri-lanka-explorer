@@ -93,7 +93,7 @@ const TourBuilderCTA = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/40 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-md"
+                className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-foreground px-8 py-6 text-lg rounded-md transition-all duration-300"
               >
                 How It Works
               </Button>
