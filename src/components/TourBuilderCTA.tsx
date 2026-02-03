@@ -16,8 +16,8 @@ const TourBuilderCTA = () => {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1566654183375-3dc8c7bf4a18?auto=format&fit=crop&w=1920&q=80"
-              alt="Sri Lanka Tea Plantations"
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80"
+              alt="Sri Lanka Scenic Landscape"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/90 to-navy-950/80" />

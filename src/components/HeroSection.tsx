@@ -1,9 +1,47 @@
-import { motion } from "framer-motion";
-import { ChevronDown, Play, Search, Calendar } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+const heroImages = [
+  {
+    url: "https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=1920&q=80",
+    alt: "Sigiriya Lion Rock Fortress",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1566654183375-3dc8c7bf4a18?auto=format&fit=crop&w=1920&q=80",
+    alt: "Nine Arch Bridge, Ella",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1920&q=80",
+    alt: "Mirissa Beach",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1544985361-b420d7a77043?auto=format&fit=crop&w=1920&q=80",
+    alt: "Yala Wildlife Safari",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1625222260311-ae620c4b3f78?auto=format&fit=crop&w=1920&q=80",
+    alt: "Kandy Temple",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80",
+    alt: "Galle Fort",
+  },
+];
+
 const HeroSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToContent = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -13,23 +51,47 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Animated Image Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=1920&q=80"
-        >
-          <source
-            src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1a9e7c02d&profile_id=164&oauth2_token_id=57447761"
-            type="video/mp4"
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={currentImageIndex}
+            src={heroImages[currentImageIndex].url}
+            alt={heroImages[currentImageIndex].alt}
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1.1,
+              transition: {
+                opacity: { duration: 1.5, ease: "easeInOut" },
+                scale: { duration: 6, ease: "linear" }
+              }
+            }}
+            exit={{ 
+              opacity: 0,
+              transition: { duration: 1.5, ease: "easeInOut" }
+            }}
           />
-        </video>
+        </AnimatePresence>
         {/* Gradient Overlay - Navy Blue */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-900/70 via-navy-800/60 to-navy-950/80" />
+      </div>
+
+      {/* Image Indicators */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentImageIndex 
+                ? "bg-secondary w-8" 
+                : "bg-white/50 hover:bg-white/70"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Content */}
