@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 
 const heroImages = [
   {
-    url: "https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    url: "https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Sigiriya Rock Fortress at Sunset",
   },
   {
@@ -14,15 +14,15 @@ const heroImages = [
     alt: "Sri Lanka Elephant Safari",
   },
   {
-    url: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    url: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Nine Arch Bridge, Ella",
   },
   {
-    url: "https://images.pexels.com/photos/17323991/pexels-photo-17323991.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    alt: "Colombo Lotus Tower",
+    url: "https://images.pexels.com/photos/3573382/pexels-photo-3573382.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Colombo City Skyline",
   },
   {
-    url: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    url: "https://images.pexels.com/photos/39857/leopard-leopard-spots-animal-wild-39857.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Sri Lanka Leopard Close-up",
   },
   {
@@ -30,7 +30,7 @@ const heroImages = [
     alt: "Sri Lanka Beach Paradise",
   },
   {
-    url: "https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    url: "https://images.pexels.com/photos/13302873/pexels-photo-13302873.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Kandy Lake and Temple",
   },
   {
@@ -38,7 +38,7 @@ const heroImages = [
     alt: "Wild Elephant in Nature",
   },
   {
-    url: "https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    url: "https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Galle Fort Lighthouse",
   },
   {
@@ -46,8 +46,8 @@ const heroImages = [
     alt: "Nuwara Eliya Tea Plantations",
   },
   {
-    url: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    alt: "Stilt Fishermen at Sunset",
+    url: "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Tropical Beach Sunset",
   },
   {
     url: "https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1920",

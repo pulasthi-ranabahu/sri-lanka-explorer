@@ -7,7 +7,7 @@ const destinations = [
     id: 1,
     name: "Sigiriya",
     subtitle: "Lion Rock Fortress",
-    image: "https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Ancient rock fortress with stunning frescoes and panoramic views",
     category: "Historical",
   },
@@ -15,7 +15,7 @@ const destinations = [
     id: 2,
     name: "Colombo",
     subtitle: "Lotus Tower",
-    image: "https://images.pexels.com/photos/17323991/pexels-photo-17323991.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/3573382/pexels-photo-3573382.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Iconic tower and modern city attractions",
     category: "City",
   },
@@ -39,7 +39,7 @@ const destinations = [
     id: 5,
     name: "Ella",
     subtitle: "Nine Arch Bridge",
-    image: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Scenic train rides and breathtaking viewpoints",
     category: "Mountains",
   },
@@ -47,7 +47,7 @@ const destinations = [
     id: 6,
     name: "Kandy",
     subtitle: "Cultural Capital",
-    image: "https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/13302873/pexels-photo-13302873.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Temple of the Tooth and traditional arts",
     category: "Cultural",
   },
@@ -104,7 +104,7 @@ const FeaturedDestinations = () => {
         style={{ y }}
       >
         <img
-          src="https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://images.pexels.com/photos/13302873/pexels-photo-13302873.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Sri Lanka Landscape"
           className="w-full h-[120%] object-cover"
         />
