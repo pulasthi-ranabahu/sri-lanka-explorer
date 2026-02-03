@@ -15,7 +15,7 @@ const destinations = [
     id: 2,
     name: "Colombo",
     subtitle: "Lotus Tower",
-    image: "https://images.pexels.com/photos/12502853/pexels-photo-12502853.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/17323991/pexels-photo-17323991.jpeg?auto=compress&cs=tinysrgb&w=1920",
     description: "Iconic tower and modern city attractions",
     category: "City",
   },
