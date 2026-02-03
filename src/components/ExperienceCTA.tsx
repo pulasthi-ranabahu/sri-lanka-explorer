@@ -6,13 +6,13 @@ const ExperienceCTA = () => {
     <section
       className="relative h-[60vh] min-h-[450px] overflow-hidden"
     >
-      {/* CSS Parallax Fixed Background - Leopard */}
+      {/* CSS Parallax Fixed Background - Leopard Close-up */}
       <div
         className="absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/2541239/pexels-photo-2541239.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+          backgroundImage: `url('https://images.pexels.com/photos/39857/leopard-leopard-spots-animal-wild-39857.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
           backgroundAttachment: 'fixed',
-          backgroundPosition: 'center',
+          backgroundPosition: 'top center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
