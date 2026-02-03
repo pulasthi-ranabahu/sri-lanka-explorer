@@ -237,6 +237,9 @@ const HeroSection = () => {
         <div className="text-3xl font-bold text-secondary">4.9★</div>
         <div className="text-sm opacity-80">Customer Rating</div>
       </motion.div>
+
+      {/* Bottom Gradient Fade - seamless transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/60 to-transparent z-20 pointer-events-none" />
     </section>
   );
 };
