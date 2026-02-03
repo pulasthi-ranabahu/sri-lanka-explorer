@@ -43,7 +43,7 @@ const Header = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-elegant py-3"
-          : "bg-black/40 backdrop-blur-sm py-5"
+          : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
