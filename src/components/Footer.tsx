@@ -7,10 +7,10 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowRight,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const footerLinks = {
   destinations: [
@@ -98,15 +98,15 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-                <span className="font-serif text-secondary-foreground font-bold text-lg">
-                  SL
-                </span>
-              </div>
+            <div className="flex items-center gap-3 mb-6">
+              <img 
+                src={logo} 
+                alt="Meridian Escapes" 
+                className="h-12"
+              />
               <div className="flex flex-col">
                 <span className="font-serif text-xl font-bold">
-                  Ceylon Voyages
+                  Meridian Escapes
                 </span>
                 <span className="text-xs tracking-wider uppercase text-white/60">
                   Discover Sri Lanka
@@ -233,7 +233,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
             <div>
-              © {new Date().getFullYear()} Ceylon Voyages. All rights reserved.
+              © {new Date().getFullYear()} Meridian Escapes. All rights reserved.
             </div>
             <div className="flex items-center gap-4">
               <img

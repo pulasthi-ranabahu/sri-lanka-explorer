@@ -15,9 +15,9 @@
     --primary: 217 91% 40%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary - Warm Gold/Orange */
-    --secondary: 38 92% 50%;
-    --secondary-foreground: 0 0% 10%;
+    /* Secondary - Elegant Teal */
+    --secondary: 180 60% 45%;
+    --secondary-foreground: 0 0% 100%;
     
     /* Background & Foreground */
     --background: 0 0% 100%;
@@ -76,8 +76,8 @@
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 38 92% 55%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 180 60% 50%;
+    --secondary-foreground: 0 0% 100%;
     
     --background: 222 47% 8%;
     --foreground: 210 40% 98%;

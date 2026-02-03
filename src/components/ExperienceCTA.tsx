@@ -25,8 +25,8 @@ const ExperienceCTA = () => {
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
         <img
-          src="https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Yala Leopard Safari - Sri Lanka Wildlife"
+          src="https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Traditional Stilt Fishermen - Sri Lanka"
           className="w-full h-full object-cover"
         />
       </motion.div>
@@ -66,8 +66,8 @@ const ExperienceCTA = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-white/80 text-lg md:text-xl max-w-2xl mb-10"
         >
-          Experience the untamed beauty of Sri Lanka's wildlife, from majestic leopards 
-          in Yala to elephants roaming free in their natural habitat.
+          Witness ancient fishing traditions and authentic experiences that 
+          connect you with Sri Lanka's rich cultural heritage.
         </motion.p>
         
         <motion.div
