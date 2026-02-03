@@ -46,7 +46,9 @@ const Header = () => {
           ? isHomePage
             ? "bg-card/95 shadow-elegant py-3"
             : "bg-card/95 backdrop-blur-md shadow-elegant py-3"
-          : "bg-transparent py-5"
+          : isHomePage
+            ? "bg-transparent py-5"
+            : "bg-card/95 backdrop-blur-md py-4"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -84,7 +86,7 @@ const Header = () => {
                 to={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-secondary relative group",
-                  isScrolled ? "text-foreground" : "text-white",
+                  isScrolled || !isHomePage ? "text-foreground" : "text-white",
                   location.pathname === item.href && "text-secondary"
                 )}
               >
@@ -118,14 +120,14 @@ const Header = () => {
             <X
               className={cn(
                 "w-6 h-6",
-                isScrolled ? "text-foreground" : "text-white"
+                isScrolled || !isHomePage ? "text-foreground" : "text-white"
               )}
             />
           ) : (
             <Menu
               className={cn(
                 "w-6 h-6",
-                isScrolled ? "text-foreground" : "text-white"
+                isScrolled || !isHomePage ? "text-foreground" : "text-white"
               )}
             />
           )}

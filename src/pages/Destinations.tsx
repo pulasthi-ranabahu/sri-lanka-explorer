@@ -11,7 +11,7 @@ const destinations = [
     name: "Sigiriya",
     subtitle: "Ancient Rock Fortress",
     description: "Marvel at the ancient rock fortress rising 200 meters above the jungle, featuring stunning frescoes and landscaped gardens.",
-    image: "https://images.pexels.com/photos/4166768/pexels-photo-4166768.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/4625368/pexels-photo-4625368.jpeg?auto=compress&cs=tinysrgb&w=800",
     highlights: ["UNESCO World Heritage", "Ancient Frescoes", "Mirror Wall"],
   },
   {
@@ -19,7 +19,7 @@ const destinations = [
     name: "Kandy",
     subtitle: "Cultural Capital",
     description: "Explore the sacred Temple of the Tooth Relic and experience traditional Kandyan dance performances.",
-    image: "https://images.pexels.com/photos/13302873/pexels-photo-13302873.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&w=800",
     highlights: ["Temple of Tooth", "Peradeniya Gardens", "Cultural Shows"],
   },
   {
