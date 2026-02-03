@@ -98,9 +98,9 @@ const WhyChooseUs = () => {
             className="relative"
           >
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1583309219338-a582f1f9ca6b?auto=format&fit=crop&w=800&q=80"
-                alt="Sri Lanka Experience"
+            <img
+              src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80"
+              alt="Sri Lanka Experience"
                 className="rounded-2xl shadow-elegant w-full"
               />
               {/* Floating Card */}
