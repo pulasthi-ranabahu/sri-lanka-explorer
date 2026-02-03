@@ -1,13 +1,14 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
+import sigiriyaImage from "@/assets/sigiriya.png";
 
 const destinations = [
   {
     id: 1,
     name: "Sigiriya",
     subtitle: "Lion Rock Fortress",
-    image: "https://images.pexels.com/photos/4625368/pexels-photo-4625368.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: sigiriyaImage,
     description: "Ancient rock fortress with stunning frescoes and panoramic views",
     category: "Historical",
   },

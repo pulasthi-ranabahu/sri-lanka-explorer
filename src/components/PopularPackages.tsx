@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronLeft, ChevronRight, Clock, MapPin, Users, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import sigiriyaImage from "@/assets/sigiriya.png";
 
 const packages = [
   {
@@ -12,7 +13,7 @@ const packages = [
     price: 899,
     rating: 4.9,
     reviews: 124,
-    image: "https://images.pexels.com/photos/4625368/pexels-photo-4625368.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: sigiriyaImage,
     highlights: ["Sigiriya", "Dambulla", "Polonnaruwa", "Kandy"],
     description: "Explore ancient kingdoms, sacred temples, and UNESCO World Heritage sites.",
   },
