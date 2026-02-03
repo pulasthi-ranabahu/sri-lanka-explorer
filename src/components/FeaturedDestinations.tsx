@@ -1,0 +1,187 @@
+import { motion } from "framer-motion";
+import { MapPin, ArrowRight } from "lucide-react";
+
+const destinations = [
+  {
+    id: 1,
+    name: "Sigiriya",
+    subtitle: "Lion Rock Fortress",
+    image: "https://images.unsplash.com/photo-1586016413664-864c0dd76f53?auto=format&fit=crop&w=800&q=80",
+    description: "Ancient rock fortress with stunning frescoes",
+    category: "Historical",
+  },
+  {
+    id: 2,
+    name: "Ella",
+    subtitle: "Hill Country Paradise",
+    image: "https://images.unsplash.com/photo-1588598198321-9735fd53ddd0?auto=format&fit=crop&w=800&q=80",
+    description: "Scenic train rides and breathtaking viewpoints",
+    category: "Mountains",
+  },
+  {
+    id: 3,
+    name: "Yala",
+    subtitle: "Wildlife Safari",
+    image: "https://images.unsplash.com/photo-1606567595334-d39972c85dfd?auto=format&fit=crop&w=800&q=80",
+    description: "Home to leopards and exotic wildlife",
+    category: "Wildlife",
+  },
+  {
+    id: 4,
+    name: "Mirissa",
+    subtitle: "Beach Paradise",
+    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80",
+    description: "Pristine beaches and whale watching",
+    category: "Beach",
+  },
+  {
+    id: 5,
+    name: "Kandy",
+    subtitle: "Cultural Capital",
+    image: "https://images.unsplash.com/photo-1625736300986-5b1823c3e2a0?auto=format&fit=crop&w=800&q=80",
+    description: "Temple of the Tooth and traditional arts",
+    category: "Cultural",
+  },
+  {
+    id: 6,
+    name: "Galle",
+    subtitle: "Colonial Heritage",
+    image: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80",
+    description: "Dutch fort and coastal charm",
+    category: "Historical",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const FeaturedDestinations = () => {
+  return (
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-secondary uppercase tracking-[0.2em] text-sm font-medium">
+            Explore Sri Lanka
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4">
+            Featured Destinations
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            From ancient wonders to natural paradises, discover the diverse
+            landscapes and rich culture of Sri Lanka
+          </p>
+        </motion.div>
+
+        {/* Destinations Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {destinations.map((destination, index) => (
+            <motion.div
+              key={destination.id}
+              variants={itemVariants}
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
+                index === 0 ? "md:col-span-2 md:row-span-2" : ""
+              }`}
+            >
+              <div
+                className={`relative ${
+                  index === 0 ? "h-[500px]" : "h-[280px]"
+                }`}
+              >
+                {/* Image */}
+                <img
+                  src={destination.image}
+                  alt={destination.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 via-teal-900/30 to-transparent" />
+
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-secondary/90 text-secondary-foreground text-xs font-medium rounded-full">
+                    {destination.category}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-2 text-gold-400 mb-2">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">{destination.subtitle}</span>
+                  </div>
+                  <h3
+                    className={`font-serif font-bold text-white mb-2 ${
+                      index === 0 ? "text-4xl" : "text-2xl"
+                    }`}
+                  >
+                    {destination.name}
+                  </h3>
+                  <p className="text-white/80 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {destination.description}
+                  </p>
+                  <motion.a
+                    href={`/destinations/${destination.id}`}
+                    className="inline-flex items-center gap-2 text-gold-400 font-medium text-sm group/link"
+                    whileHover={{ x: 5 }}
+                  >
+                    Explore
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* View All Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-12"
+        >
+          <a
+            href="/destinations"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+          >
+            View All Destinations
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedDestinations;
