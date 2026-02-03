@@ -89,6 +89,11 @@ const Testimonials = () => {
       ref={containerRef}
       className="py-24 relative overflow-hidden"
     >
+      {/* Top Gradient Fade - seamless transition from previous section */}
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-background via-background/60 to-transparent z-20 pointer-events-none" />
+      
+      {/* Bottom Gradient Fade - seamless transition to footer */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-950 via-navy-950/80 to-transparent z-20 pointer-events-none" />
       {/* Parallax Background Image */}
       <motion.div
         style={{ y }}
