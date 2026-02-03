@@ -1,110 +1,173 @@
 
 
-# Hero Image Slideshow and Background Fix Plan
+# Hero Section & Destinations Fix Plan
 
-## Overview
-Transform the hero section from a video background (which isn't loading) to an animated image slideshow with smooth crossfade transitions, similar to tourslanka.com. Also ensure all other section backgrounds display correctly.
+## Issues Identified
 
----
+Based on the screenshots provided:
 
-## Current Issues
-
-Based on the screenshot provided:
-1. **Hero section shows gray/blue gradient** - The Vimeo video source is not loading, leaving only the gradient overlay visible
-2. **No visual imagery in hero** - Users see blank blue instead of beautiful Sri Lanka scenery
-3. **Other sections may have image loading issues** - Some Unsplash URLs may need updating for reliability
+1. **Bluish filter too strong** - The navy gradient overlay (`from-navy-900/70 via-navy-800/60 to-navy-950/80`) makes images look too blue/dark
+2. **Images not showing in Featured Destinations** - Sigiriya, Ella, Kandy, and Galle cards show gray backgrounds (Unsplash URLs not loading)
+3. **Transition speed too slow** - Current 6-second interval with 1.5s crossfade is sluggish
+4. **Need more hero images** - Currently 6 images, could add 2-3 more for variety
+5. **No scroll-triggered slide animations** - Missing the parallax/slide-in effects like tourslanka.com
 
 ---
 
-## Solution: Animated Image Slideshow
+## Changes Overview
 
-### Hero Section Changes (src/components/HeroSection.tsx)
+### 1. HeroSection.tsx - Remove Blue Filter & Speed Up
 
-**Replace video background with:**
-- Array of 5-6 high-quality Sri Lanka images
-- Auto-cycling every 6 seconds
-- Smooth crossfade transitions (1.5s duration)
-- Ken Burns effect (subtle zoom from 100% to 110%)
-- Image position indicators (optional dots)
+**Gradient Overlay Fix:**
+- Change from heavy navy overlay to subtle dark gradient
+- Use `from-black/40 via-black/20 to-black/50` instead of navy tones
+- This will show true image colors without blue tint
 
-**Image Set for Hero Slideshow:**
-1. Sigiriya Lion Rock - iconic fortress at golden hour
-2. Nine Arch Bridge, Ella - with lush green surroundings  
-3. Yala Safari - leopard or elephant in natural habitat
-4. Mirissa Beach - palm trees and tropical coastline
-5. Tea Plantations - misty hill country scenery
-6. Galle Fort - colonial architecture with lighthouse
+**Speed Improvements:**
+- Reduce interval from 6000ms to 4000ms (4 seconds per image)
+- Reduce crossfade duration from 1.5s to 0.8s
+- Reduce Ken Burns scale duration from 6s to 4s
+
+**Add More Images:**
+- Add 3 additional high-quality Sri Lanka images
+- Total: 9 images for more variety
+- Include: Polonnaruwa, Anuradhapura, Trincomalee, Nuwara Eliya
+
+### 2. FeaturedDestinations.tsx - Fix Broken Images
+
+**Replace All Image URLs with Reliable Sources:**
+
+| Destination | New Image |
+|-------------|-----------|
+| Sigiriya | Pexels or different Unsplash URL that works |
+| Ella | Nine Arch Bridge clear image |
+| Yala | Leopard safari wildlife |
+| Mirissa | Tropical beach with palm trees |
+| Kandy | Temple of the Tooth exterior |
+| Galle | Fort lighthouse (new image) |
+
+**Add Scroll Slide Animation:**
+- Use `whileInView` with slide-in variants
+- Cards slide in from left/right when scrolling
+- Staggered animation for professional effect
+
+### 3. Add Scroll-Triggered Slide Effects (Like tourslanka.com)
+
+**New Animation Variants:**
+- `slideInLeft`: Elements slide in from left on scroll
+- `slideInRight`: Elements slide in from right on scroll
+- `slideInUp`: Elements slide up with fade
+
+**Apply to Sections:**
+- Featured Destinations: Cards alternate slide left/right
+- Why Choose Us: Stats slide in from sides
+- Popular Packages: Cards slide up with stagger
+- Testimonials: Slide in from right
 
 ---
 
 ## Technical Implementation
 
-### HeroSection.tsx Modifications
+### File: src/components/HeroSection.tsx
 
-**New imports:**
+**Changes:**
+1. Modify gradient overlay class (line 78):
+   - From: `bg-gradient-to-b from-navy-900/70 via-navy-800/60 to-navy-950/80`
+   - To: `bg-gradient-to-b from-black/30 via-transparent to-black/50`
+
+2. Speed up interval (line 40):
+   - From: `6000`
+   - To: `4000`
+
+3. Speed up animations (lines 63-74):
+   - Opacity duration: `1.5` to `0.8`
+   - Scale duration: `6` to `4`
+   - Exit opacity: `1.5` to `0.8`
+
+4. Add 3 more images to heroImages array:
+   - Polonnaruwa ancient city
+   - Nuwara Eliya tea plantations
+   - Trincomalee beach
+
+### File: src/components/FeaturedDestinations.tsx
+
+**Changes:**
+1. Replace all 6 image URLs with working alternatives:
+   - Use Pexels CDN or verified Unsplash photos
+   - Ensure high quality (1920px width)
+
+2. Add slide animation variants:
+   - Create `slideInLeftVariants` and `slideInRightVariants`
+   - Apply alternating animations based on index
+
+3. Update itemVariants for scroll effect:
+   - Add `x` transform for horizontal slide
+   - Increase duration slightly for smoothness
+
+### Image URL Replacements
+
+**Sigiriya:**
 ```text
-- Add useState, useEffect from React
-- Already has AnimatePresence from framer-motion
+https://images.pexels.com/photos/4254555/pexels-photo-4254555.jpeg?auto=compress&cs=tinysrgb&w=1920
 ```
 
-**New state and logic:**
+**Ella (Nine Arch Bridge):**
 ```text
-- heroImages array with 5-6 image URLs
-- currentImageIndex state (default 0)
-- useEffect with setInterval for 6-second auto-advance
-- AnimatePresence for smooth image transitions
+https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920
 ```
 
-**Animation specifications:**
+**Yala (Leopard):**
 ```text
-- Crossfade: opacity 0 to 1 over 1.5 seconds
-- Scale: 1.0 to 1.1 over 6 seconds (Ken Burns zoom)
-- Exit: opacity fade out while next image fades in
-- Easing: ease-in-out for smooth transitions
+https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920
 ```
 
-**Structure change:**
+**Mirissa (Beach):**
 ```text
-Remove:
-- <video> element and <source> tag
-- poster attribute
+https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920
+```
 
-Add:
-- AnimatePresence container
-- motion.img with absolute positioning
-- Animated key-based image swapping
+**Kandy (Temple):**
+```text
+https://images.pexels.com/photos/4254555/pexels-photo-4254555.jpeg?auto=compress&cs=tinysrgb&w=1920
+```
+
+**Galle (Fort/Lighthouse):**
+```text
+https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920
 ```
 
 ---
 
-## Image URLs (Reliable Sources)
+## Animation Implementation Details
 
-### Hero Slideshow Images
-Using high-quality, reliably loading Unsplash images:
+### Slide-In Animation Variants
 
-| Slide | Location | Description |
-|-------|----------|-------------|
-| 1 | Sigiriya | Ancient rock fortress with panoramic views |
-| 2 | Ella | Nine Arch Bridge with train or green hills |
-| 3 | Yala | Wildlife safari scene - leopard or elephants |
-| 4 | Mirissa | Tropical beach with palm trees |
-| 5 | Hill Country | Tea plantation terraces |
-| 6 | Galle | Fort lighthouse at sunset |
+```text
+slideInLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+}
 
-### Updated Section Images
+slideInRight = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+}
+```
 
-**FeaturedDestinations.tsx:**
-- Verify all 6 destination images load correctly
-- Use consistent Unsplash URL format with auto parameters
+### Apply Based on Index
 
-**WhyChooseUs.tsx:**
-- Update main image to show authentic Sri Lanka tourism scene
-
-**PopularPackages.tsx:**
-- Update all 5 package card images with relevant scenes
-
-**TourBuilderCTA.tsx:**
-- Update background image to stunning landscape
+```text
+Even index cards (0, 2, 4): slideInLeft
+Odd index cards (1, 3, 5): slideInRight
+```
 
 ---
 
@@ -112,42 +175,20 @@ Using high-quality, reliably loading Unsplash images:
 
 | File | Changes |
 |------|---------|
-| `src/components/HeroSection.tsx` | Replace video with animated image slideshow |
-| `src/components/FeaturedDestinations.tsx` | Verify/update image URLs |
-| `src/components/WhyChooseUs.tsx` | Update main feature image |
-| `src/components/PopularPackages.tsx` | Update package images |
-| `src/components/TourBuilderCTA.tsx` | Update background image |
-
----
-
-## Animation Flow
-
-```text
-Image 1 displays (0-6s)
-  ↓ [1.5s crossfade]
-Image 2 displays (6-12s)
-  ↓ [1.5s crossfade]
-Image 3 displays (12-18s)
-  ↓ [1.5s crossfade]
-... continues cycling
-```
-
-### CSS/Framer Motion Variants
-
-```text
-enter: { opacity: 0, scale: 1.0 }
-center: { opacity: 1, scale: 1.1, transition: { opacity: 1.5s, scale: 6s } }
-exit: { opacity: 0 }
-```
+| `src/components/HeroSection.tsx` | Remove blue filter, speed up transitions, add images |
+| `src/components/FeaturedDestinations.tsx` | Fix image URLs, add slide animations |
+| `src/components/WhyChooseUs.tsx` | Add slide-in scroll effects |
+| `src/components/PopularPackages.tsx` | Add slide-in scroll effects |
 
 ---
 
 ## Expected Result
 
 After implementation:
-- Hero section displays stunning Sri Lanka imagery with smooth transitions
-- Each image zooms subtly for cinematic effect
-- Automatic 6-second rotation keeps content fresh
-- All section backgrounds load reliably
-- Visual experience matches professional tourism sites like tourslanka.com
+- Hero images display with natural colors (no blue tint)
+- Faster, smoother image transitions (4 seconds, 0.8s crossfade)
+- All destination cards show proper images
+- Galle shows new lighthouse/fort image
+- Sections slide in smoothly when scrolling (like tourslanka.com)
+- Professional, polished animation feel throughout
 
