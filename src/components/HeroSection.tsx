@@ -18,7 +18,7 @@ const heroImages = [
     alt: "Nine Arch Bridge, Ella",
   },
   {
-    url: "https://images.pexels.com/photos/12502853/pexels-photo-12502853.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    url: "https://images.pexels.com/photos/17323991/pexels-photo-17323991.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Colombo Lotus Tower",
   },
   {
