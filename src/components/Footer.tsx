@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Instagram,
@@ -55,8 +56,13 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Thank you for subscribing!");
+  };
+
   return (
-    <footer className="bg-navy-950 text-white">
+    <footer className="bg-foreground text-white">
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
         <div className="container mx-auto px-4 py-12">
@@ -79,13 +85,15 @@ const Footer = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="flex gap-3 w-full md:w-auto"
+              onSubmit={handleNewsletterSubmit}
             >
               <Input
                 type="email"
                 placeholder="Enter your email"
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 w-full md:w-72"
+                required
               />
-              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6">
+              <Button type="submit" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6">
                 Subscribe
               </Button>
             </motion.form>
@@ -125,11 +133,11 @@ const Footer = () => {
                 +94 11 234 5678
               </a>
               <a
-                href="mailto:info@ceylonvoyages.com"
+                href="mailto:info@meridianescapes.com"
                 className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                info@ceylonvoyages.com
+                info@meridianescapes.com
               </a>
               <div className="flex items-start gap-3 text-white/70">
                 <MapPin className="w-4 h-4 mt-1" />
@@ -162,12 +170,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.destinations.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -178,12 +186,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.packages.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -194,12 +202,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -210,12 +218,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

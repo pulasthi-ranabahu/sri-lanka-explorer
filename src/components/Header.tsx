@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
@@ -17,6 +18,7 @@ const navItems = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,11 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <motion.header
@@ -41,55 +48,62 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="/"
-          className="flex items-center gap-2"
-          whileHover={{ scale: 1.02 }}
-        >
-          <img 
-            src={logo} 
-            alt="Meridian Escapes" 
-            className={cn(
-              "transition-all duration-300",
-              isScrolled ? "h-10" : "h-14"
+        <motion.div whileHover={{ scale: 1.02 }}>
+          <Link to="/" className="flex items-center gap-2">
+            <img 
+              src={logo} 
+              alt="Meridian Escapes" 
+              className={cn(
+                "transition-all duration-300",
+                isScrolled ? "h-10" : "h-14"
+              )}
+            />
+            {!isScrolled && (
+              <span
+                className="text-xs tracking-wider uppercase text-white/80 hidden sm:block"
+              >
+                Discover Sri Lanka
+              </span>
             )}
-          />
-          {!isScrolled && (
-            <span
-              className="text-xs tracking-wider uppercase text-white/80 hidden sm:block"
-            >
-              Discover Sri Lanka
-            </span>
-          )}
-        </motion.a>
+          </Link>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item, index) => (
-            <motion.a
+            <motion.div
               key={item.label}
-              href={item.href}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-secondary relative group",
-                isScrolled ? "text-foreground" : "text-white"
-              )}
             >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
-            </motion.a>
+              <Link
+                to={item.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-secondary relative group",
+                  isScrolled ? "text-foreground" : "text-white",
+                  location.pathname === item.href && "text-secondary"
+                )}
+              >
+                {item.label}
+                <span className={cn(
+                  "absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all",
+                  location.pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                )} />
+              </Link>
+            </motion.div>
           ))}
         </nav>
 
         {/* CTA Button */}
         <div className="hidden lg:flex items-center gap-4">
-          <Button
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold shadow-md"
-          >
-            Book Now
-          </Button>
+          <Link to="/tour-builder">
+            <Button
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold shadow-md"
+            >
+              Book Now
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -126,21 +140,28 @@ const Header = () => {
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.div
                   key={item.label}
-                  href={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="text-foreground font-medium py-2 border-b border-border/50 hover:text-secondary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
-                </motion.a>
+                  <Link
+                    to={item.href}
+                    className={cn(
+                      "text-foreground font-medium py-2 border-b border-border/50 hover:text-secondary transition-colors block",
+                      location.pathname === item.href && "text-secondary"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
-              <Button className="mt-4 bg-secondary text-secondary-foreground w-full">
-                Book Now
-              </Button>
+              <Link to="/tour-builder">
+                <Button className="mt-4 bg-secondary text-secondary-foreground w-full">
+                  Book Now
+                </Button>
+              </Link>
             </nav>
           </motion.div>
         )}
