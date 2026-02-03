@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
@@ -44,14 +44,6 @@ const testimonials = [
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -86,7 +78,6 @@ const Testimonials = () => {
 
   return (
     <section
-      ref={containerRef}
       className="py-24 relative overflow-hidden"
     >
       {/* Top Gradient Fade - seamless transition from previous section */}
@@ -94,17 +85,18 @@ const Testimonials = () => {
       
       {/* Bottom Gradient Fade - seamless transition to footer */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-950 via-navy-950/80 to-transparent z-20 pointer-events-none" />
-      {/* Parallax Background Image */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 w-full h-[120%] -top-[10%]"
-      >
-        <img
-          src="https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Sigiriya Rock Fortress - Sri Lanka"
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
+      
+      {/* CSS Parallax Fixed Background Image */}
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/10049063/pexels-photo-10049063.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
 
       {/* Dark Overlay - Enhanced visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950/95 via-navy-900/92 to-navy-950/95" />

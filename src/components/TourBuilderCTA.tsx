@@ -1,39 +1,30 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const TourBuilderCTA = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.15, 1.05, 1.15]);
-
   return (
-    <section ref={containerRef} className="relative min-h-[600px] overflow-hidden">
+    <section className="relative min-h-[600px] overflow-hidden">
       {/* Top Gradient Fade */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-20 pointer-events-none" />
       
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20 pointer-events-none" />
 
-      {/* Parallax Background Image */}
-      <motion.div 
+      {/* CSS Parallax Fixed Background */}
+      <div 
         className="absolute inset-0"
-        style={{ y, scale }}
-      >
-        <img
-          src="https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Sri Lanka Beach Ocean Sunset"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/85 to-navy-950/70" />
-      </motion.div>
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      
+      {/* Lighter overlay for more visible background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-900/60 to-navy-950/50" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 py-20 md:py-28">

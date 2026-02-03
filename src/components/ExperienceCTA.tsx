@@ -1,34 +1,22 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const ExperienceCTA = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
-
   return (
     <section
-      ref={containerRef}
       className="relative h-[60vh] min-h-[450px] overflow-hidden"
     >
-      {/* Parallax Background - Leopard Image */}
-      <motion.div
-        style={{ y, scale }}
+      {/* CSS Parallax Fixed Background - Leopard Image */}
+      <div
         className="absolute inset-0 w-full h-full"
-      >
-        <img
-          src="https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Sri Lanka Leopard - Wildlife Safari"
-          className="w-full h-full object-cover object-center"
-        />
-      </motion.div>
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
 
       {/* Subtle Left Gradient for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
