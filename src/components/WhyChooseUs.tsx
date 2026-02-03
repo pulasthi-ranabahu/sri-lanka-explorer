@@ -84,8 +84,8 @@ const WhyChooseUs = () => {
           alt="Sri Lanka Tea Plantations"
           className="w-full h-[120%] object-cover"
         />
-        {/* Gradient Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+        {/* Gradient Overlay for readability - whiter for visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/97 via-background/94 to-background/97" />
       </motion.div>
 
       {/* Subtle Pattern Overlay */}
