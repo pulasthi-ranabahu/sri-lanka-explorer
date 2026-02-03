@@ -15,8 +15,8 @@
     --primary: 213 90% 52%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary - Vibrant Teal/Cyan (accent text, highlights) */
-    --secondary: 170 75% 41%;
+    /* Secondary - Sky Blue (accent text, highlights) */
+    --secondary: 199 89% 48%;
     --secondary-foreground: 0 0% 100%;
     
     /* Background & Foreground */
@@ -35,8 +35,8 @@
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
     
-    /* Accent - Teal */
-    --accent: 170 75% 41%;
+    /* Accent - Sky Blue */
+    --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
     
     /* Destructive */
