@@ -16,9 +16,10 @@ const PageHero = ({ title, subtitle, backgroundImage }: PageHeroProps) => {
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
         <motion.h1
