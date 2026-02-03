@@ -98,8 +98,8 @@ const Testimonials = () => {
         }}
       />
 
-      {/* Dark Overlay - Enhanced visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/95 via-navy-900/92 to-navy-950/95" />
+      {/* Dark Overlay - Lighter for more visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-navy-900/75 to-navy-950/85" />
 
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">

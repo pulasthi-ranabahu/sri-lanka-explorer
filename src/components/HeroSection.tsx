@@ -10,44 +10,44 @@ const heroImages = [
     alt: "Sigiriya Rock Fortress at Sunset",
   },
   {
+    url: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Sri Lanka Elephant Safari",
+  },
+  {
     url: "https://images.pexels.com/photos/15115700/pexels-photo-15115700.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Nine Arch Bridge, Ella",
+  },
+  {
+    url: "https://images.pexels.com/photos/12502853/pexels-photo-12502853.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Colombo Lotus Tower",
+  },
+  {
+    url: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Sri Lanka Leopard Close-up",
   },
   {
     url: "https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Sri Lanka Beach Paradise",
   },
   {
-    url: "https://images.pexels.com/photos/3755013/pexels-photo-3755013.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    alt: "Yala Leopard Safari",
-  },
-  {
     url: "https://images.pexels.com/photos/6152103/pexels-photo-6152103.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Kandy Lake and Temple",
+  },
+  {
+    url: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    alt: "Wild Elephant in Nature",
   },
   {
     url: "https://images.pexels.com/photos/4254559/pexels-photo-4254559.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Galle Fort Lighthouse",
   },
   {
-    url: "https://images.pexels.com/photos/13765920/pexels-photo-13765920.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    alt: "Polonnaruwa Ancient Ruins",
-  },
-  {
     url: "https://images.pexels.com/photos/2835562/pexels-photo-2835562.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Nuwara Eliya Tea Plantations",
   },
   {
-    url: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    alt: "Tropical Beach Sunset",
-  },
-  {
     url: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
     alt: "Stilt Fishermen at Sunset",
-  },
-  {
-    url: "https://images.pexels.com/photos/3551498/pexels-photo-3551498.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    alt: "Elephant Safari",
   },
   {
     url: "https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1920",
