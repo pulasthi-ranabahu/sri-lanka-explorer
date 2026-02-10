@@ -1,37 +1,33 @@
 
-# Plan: Use Uploaded Sigiriya Image
+
+# Plan: Update Logo to Transparent Background and Set as Favicon
 
 ## Summary
-Replace the current Sigiriya image across the website with the uploaded image showing a panoramic view of Sigiriya Rock Fortress.
+Replace the current logo (which has a blue background box) with a transparent version matching the style in image-53.png -- just the white lotus icon and "Meridian Escapes" text with no background. Also use this logo as the site favicon.
 
-## Changes Required
+## Changes
 
-### 1. Copy Uploaded Image to Project
-- Copy `user-uploads://image-50.png` to `src/assets/sigiriya.png`
-- This allows proper bundling and optimization through Vite
+### 1. Replace the Logo Asset
+- Copy `user-uploads://image-53.png` and crop/use it as the new logo, OR use `user-uploads://image-52.png` as reference to understand the current issue
+- Since the second image shows the desired transparent-style logo, we will crop just the logo portion from image-53.png and save it as the new `src/assets/logo.png`
+- Note: The uploaded image-53.png is a full screenshot -- we may need to use it as-is and rely on CSS to handle transparency, or ask the user to provide a standalone transparent PNG of just the logo
 
-### 2. Update FeaturedDestinations.tsx
-- Import the Sigiriya image from `@/assets/sigiriya.png`
-- Update the Sigiriya destination (id: 1) to use the imported image
+### 2. CSS Fix for Logo Background Blending
+- In `src/components/Header.tsx`, ensure the logo `<img>` tag does not have any background styling that creates the blue box effect
+- If the current `logo.png` file itself contains the blue background baked into the image, the only true fix is replacing the image file with a transparent PNG
 
-### 3. Update PopularPackages.tsx  
-- Import the Sigiriya image from `@/assets/sigiriya.png`
-- Update the Cultural Triangle Discovery package (id: 1) to use the imported image (since it features Sigiriya)
+### 3. Set Logo as Favicon
+- Copy the logo image to `public/favicon.png`
+- Update `index.html` to reference the new favicon: `<link rel="icon" href="/favicon.png" type="image/png">`
 
-### 4. Update Destinations.tsx Page
-- Import the Sigiriya image from `@/assets/sigiriya.png`
-- Update the Sigiriya destination to use the imported image
+## Important Note
+The blue background appears to be baked into the current `logo.png` file itself. To get a truly transparent logo, you would need to provide a PNG version of just the lotus + text with a transparent background. If you have one, please upload it. Otherwise, I can attempt to use the cropped version from image-53.png, though it may include some of the website background.
 
 ## Files to Modify
 | File | Change |
 |------|--------|
-| `src/assets/sigiriya.png` | Copy uploaded image here |
-| `src/components/FeaturedDestinations.tsx` | Import and use new Sigiriya image |
-| `src/components/PopularPackages.tsx` | Import and use new Sigiriya image |
-| `src/pages/Destinations.tsx` | Import and use new Sigiriya image |
+| `src/assets/logo.png` | Replace with transparent logo |
+| `public/favicon.png` | Copy logo for favicon use |
+| `index.html` | Update favicon reference |
+| `src/components/Header.tsx` | Minor cleanup if needed |
 
-## Technical Details
-- Using ES6 import for the image ensures proper bundling
-- Import statement: `import sigiriyaImage from "@/assets/sigiriya.png"`
-- Replace URL strings with the imported `sigiriyaImage` variable
-- No changes to layout, animations, or any other existing functionality
