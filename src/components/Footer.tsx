@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import Logo from "@/components/Logo";
 
 const footerLinks = {
   destinations: [
@@ -107,11 +107,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <div className="mb-6">
-              <img 
-                src={logo} 
-                alt="Meridian Escapes" 
-                className="h-14 mb-2"
-              />
+              <Logo className="h-14 mb-2 text-white" />
               <span className="text-xs tracking-wider uppercase text-white/60">
                 Discover Sri Lanka
               </span>

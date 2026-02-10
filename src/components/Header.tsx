@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.png";
+import Logo from "@/components/Logo";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -55,14 +55,11 @@ const Header = () => {
         {/* Logo */}
         <motion.div whileHover={{ scale: 1.02 }}>
           <Link to="/" className="flex items-center gap-2">
-            <img 
-              src={logo} 
-              alt="Meridian Escapes" 
-              className={cn(
-                "transition-all duration-300",
-                isScrolled ? "h-10" : "h-14"
-              )}
-            />
+            <Logo className={cn(
+                "transition-all duration-300 text-white",
+                isScrolled ? "h-10" : "h-14",
+                (isScrolled || !isHomePage) && "text-foreground"
+              )} />
             {!isScrolled && (
               <span
                 className="text-xs tracking-wider uppercase text-white/80 hidden sm:block"
