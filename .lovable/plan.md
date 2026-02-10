@@ -1,33 +1,36 @@
 
 
-# Plan: Update Logo to Transparent Background and Set as Favicon
+# Plan: Remove Logo Background and Set as Favicon
 
 ## Summary
-Replace the current logo (which has a blue background box) with a transparent version matching the style in image-53.png -- just the white lotus icon and "Meridian Escapes" text with no background. Also use this logo as the site favicon.
+Use AI image generation to remove the blue background from the current logo, creating a transparent PNG. Then update the logo asset and set it as the favicon. No layout, color, font, or content changes.
 
-## Changes
+## Steps
 
-### 1. Replace the Logo Asset
-- Copy `user-uploads://image-53.png` and crop/use it as the new logo, OR use `user-uploads://image-52.png` as reference to understand the current issue
-- Since the second image shows the desired transparent-style logo, we will crop just the logo portion from image-53.png and save it as the new `src/assets/logo.png`
-- Note: The uploaded image-53.png is a full screenshot -- we may need to use it as-is and rely on CSS to handle transparency, or ask the user to provide a standalone transparent PNG of just the logo
+### 1. Generate Transparent Logo via AI
+- Use the Lovable AI image generation model (`google/gemini-2.5-flash-image`) via an edge function to remove the blue background from the current `logo.png`
+- Prompt: "Remove the blue rectangular background from this logo. Keep only the white lotus icon and 'Meridian Escapes' text with a fully transparent background. Preserve crisp edges."
+- Save the result as the new `src/assets/logo.png`
 
-### 2. CSS Fix for Logo Background Blending
-- In `src/components/Header.tsx`, ensure the logo `<img>` tag does not have any background styling that creates the blue box effect
-- If the current `logo.png` file itself contains the blue background baked into the image, the only true fix is replacing the image file with a transparent PNG
+**Fallback approach**: If AI background removal doesn't produce clean results, I'll create the logo as an inline SVG component instead -- drawing the lotus and text in white with no background. This guarantees a perfect transparent result.
 
-### 3. Set Logo as Favicon
-- Copy the logo image to `public/favicon.png`
-- Update `index.html` to reference the new favicon: `<link rel="icon" href="/favicon.png" type="image/png">`
+### 2. Replace Logo Asset
+- Overwrite `src/assets/logo.png` with the new transparent version
+- No import changes needed -- both `Header.tsx` and `Footer.tsx` already import from `@/assets/logo.png`
 
-## Important Note
-The blue background appears to be baked into the current `logo.png` file itself. To get a truly transparent logo, you would need to provide a PNG version of just the lotus + text with a transparent background. If you have one, please upload it. Otherwise, I can attempt to use the cropped version from image-53.png, though it may include some of the website background.
+### 3. Set Favicon
+- Copy the transparent logo (or a simplified lotus-only version) to `public/favicon.png`
+- Update `index.html` to add: `<link rel="icon" href="/favicon.png" type="image/png">`
 
 ## Files to Modify
 | File | Change |
 |------|--------|
-| `src/assets/logo.png` | Replace with transparent logo |
-| `public/favicon.png` | Copy logo for favicon use |
-| `index.html` | Update favicon reference |
-| `src/components/Header.tsx` | Minor cleanup if needed |
+| `src/assets/logo.png` | Replace with transparent version |
+| `public/favicon.png` | New file -- logo for browser tab |
+| `index.html` | Add favicon link tag |
 
+## What Stays the Same
+- Header layout, logo size (`h-10`/`h-14`), and positioning
+- Footer logo usage
+- All colors, fonts, spacing, sections, and content
+- "Discover Sri Lanka" subtitle text next to logo
