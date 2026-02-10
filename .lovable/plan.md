@@ -1,36 +1,43 @@
 
 
-# Plan: Remove Logo Background and Set as Favicon
+# Plan: Replace Logo with Inline SVG Component (Guaranteed Transparency)
 
-## Summary
-Use AI image generation to remove the blue background from the current logo, creating a transparent PNG. Then update the logo asset and set it as the favicon. No layout, color, font, or content changes.
+## Problem
+The AI-generated "transparent" PNG still has a visible gray/white background box. PNG background removal is unreliable.
+
+## Solution
+Create the logo as an **inline SVG React component** instead of a raster image. This guarantees a perfectly transparent background with crisp edges at any size.
+
+The SVG will reproduce the lotus icon and "Meridian Escapes" text in white, matching the current design exactly. No background rectangle -- just the shapes themselves.
 
 ## Steps
 
-### 1. Generate Transparent Logo via AI
-- Use the Lovable AI image generation model (`google/gemini-2.5-flash-image`) via an edge function to remove the blue background from the current `logo.png`
-- Prompt: "Remove the blue rectangular background from this logo. Keep only the white lotus icon and 'Meridian Escapes' text with a fully transparent background. Preserve crisp edges."
-- Save the result as the new `src/assets/logo.png`
+### 1. Create `src/components/Logo.tsx`
+- Build an SVG component drawing the lotus flower icon and "Meridian Escapes" text
+- Accept `className` prop for sizing (`h-10`, `h-14`, etc.)
+- Default fill color: white (works on both the dark header and dark footer backgrounds)
 
-**Fallback approach**: If AI background removal doesn't produce clean results, I'll create the logo as an inline SVG component instead -- drawing the lotus and text in white with no background. This guarantees a perfect transparent result.
+### 2. Update `src/components/Header.tsx`
+- Replace `import logo from "@/assets/logo.png"` with `import Logo from "@/components/Logo"`
+- Replace `<img src={logo} ... />` with `<Logo className={...} />`
+- Keep exact same sizing classes (`h-10` / `h-14`) and positioning
 
-### 2. Replace Logo Asset
-- Overwrite `src/assets/logo.png` with the new transparent version
-- No import changes needed -- both `Header.tsx` and `Footer.tsx` already import from `@/assets/logo.png`
+### 3. Update `src/components/Footer.tsx`
+- Same swap: replace `<img src={logo} ... />` with `<Logo className="h-14 mb-2" />`
 
-### 3. Set Favicon
-- Copy the transparent logo (or a simplified lotus-only version) to `public/favicon.png`
-- Update `index.html` to add: `<link rel="icon" href="/favicon.png" type="image/png">`
-
-## Files to Modify
-| File | Change |
-|------|--------|
-| `src/assets/logo.png` | Replace with transparent version |
-| `public/favicon.png` | New file -- logo for browser tab |
-| `index.html` | Add favicon link tag |
+### 4. Favicon
+- Keep the current `public/favicon.png` (the AI-generated version works fine at 16x16/32x32 favicon size where the background box isn't noticeable)
+- Or generate a simpler lotus-only favicon SVG
 
 ## What Stays the Same
-- Header layout, logo size (`h-10`/`h-14`), and positioning
-- Footer logo usage
-- All colors, fonts, spacing, sections, and content
-- "Discover Sri Lanka" subtitle text next to logo
+- All layout, sizes, positions, colors, fonts, spacing, sections, content
+- "Discover Sri Lanka" subtitle text
+- Logo dimensions and placement in header and footer
+
+## Files to Create/Modify
+| File | Change |
+|------|--------|
+| `src/components/Logo.tsx` | New -- inline SVG logo component |
+| `src/components/Header.tsx` | Swap `<img>` for `<Logo>` component |
+| `src/components/Footer.tsx` | Swap `<img>` for `<Logo>` component |
+
